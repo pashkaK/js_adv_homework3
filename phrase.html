@@ -1,0 +1,43 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. Отобразите каждое отдельное слово в виде списка ul li. Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <ul>
+             
+    </ul>
+     
+    <script>    
+        var phrase = prompt("Введите фразу.");
+        var list = new Array();
+        var ul = document.querySelector("ul");
+        var a = 0;
+        if (phrase != null) {
+            list = phrase.split(" ");
+            list[0] = list[0].toUpperCase();    
+            if(list.length >= 3){
+                list[list.length-1] = list[list.length-1].toLowerCase();
+                list[list.length-2] = list[list.length-2].toLowerCase();
+            }
+            for(i = 0;i < phrase.length; i++){
+                if(phrase[i] == "a" || phrase[i] == "A"){
+                    a++;
+                }
+            }
+            alert(a);
+            for(i = 0;i < list.length; i++){
+                var li = document.createElement("li");
+                li.innerHTML = list[i];
+                ul.appendChild(li);
+            }
+        }
+    </script>
+
+</body>
+</html>
